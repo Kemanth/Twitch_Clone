@@ -1,14 +1,18 @@
 import { BrowserRouter, Route } from "react-router-dom";
+import Header from "./Header";
 import StreamCreate from "./streams/StreamCreate";
 import StreamDelete from "./streams/StreamDelete";
 import StreamEdit from "./streams/StreamEdit";
 import StreamList from "./streams/StreamList";
 import StreamShow from "./streams/StreamShow";
 
+let key = "537375197328-vjskseoaeq82cdjb8jhnulor01boosj2.apps.googleusercontent.com"
+
 const App = () => {
     return (
-        <div>
+        <div>  
             <BrowserRouter>
+                <Header/>
                 <Route path="/" exact component={StreamList}/>
                 <Route path="/streams/new" exact component={StreamCreate}/>
                 <Route path="/streams/edit" exact component={StreamEdit}/>
