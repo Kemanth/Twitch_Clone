@@ -6,8 +6,6 @@ import StreamEdit from "./streams/StreamEdit";
 import StreamList from "./streams/StreamList";
 import StreamShow from "./streams/StreamShow";
 
-let key = "537375197328-vjskseoaeq82cdjb8jhnulor01boosj2.apps.googleusercontent.com"
-
 const App = () => {
     return (
         <div>  
