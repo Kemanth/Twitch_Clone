@@ -1,7 +1,9 @@
 import React from "react";
+import { signIn, signOut } from "../actions";
+import { connect } from "react-redux";
 
 class GoogleAuth extends React.Component{
-    state = {isSignedIn : null};
+    
     componentDidMount(){
         window.gapi.load('client:auth2', ()=>{
             window.gapi.client.init({
@@ -10,31 +12,49 @@ class GoogleAuth extends React.Component{
                 scope : 'email'
             }).then(()=>{
                 this.auth = window.gapi.auth2.getAuthInstance();
-                this.setState({isSignedIn : this.auth.isSignedIn.get()});
+                this.onAuthChnage(this.auth.isSignedIn.get());
                 this.auth.isSignedIn.listen(this.onAuthChnage);
             });
         })
     }
 
-    onAuthChnage = () => {
-        this.setState({isSignedIn : this.auth.isSignedIn.get()});
+    onAuthChnage = (isSignedIn) => {
+       if(isSignedIn === true){
+           this.props.signIn(this.auth.currentUser.get().getId());
+       }
+       else{
+           this.props.signOut();
+       }
+    }
+
+    handleSignIn = () => {
+        this.auth.signIn();
+    }
+
+    handleSignOut = () => {
+        this.auth.signOut();
     }
 
     renderAuthButton = () => {
-        if(this.state.isSignedIn === null){
-            return <div>Not Sure</div>
+        if(this.props.isSignedIn === null){
+            return null;
         }
-        else if(this.state.isSignedIn === true){
-            return <div>Signed In</div>
+        else if(this.props.isSignedIn === true){
+            return <button onClick={this.handleSignOut}>Sign Out</button>
         }
         else{
-            return <div>Not Signed In</div>
+            return <button onClick={this.handleSignIn}>Sign In</button>
         }
     }
 
-    render() {
+    render() {      
         return <div>{this.renderAuthButton()}</div>
     }
 }
 
-export default GoogleAuth;
+const mapStateToProps = (store) => {
+    return {
+        isSignedIn : store.auth.isSignedIn,
+    } 
+}
+export default connect(mapStateToProps, {signIn, signOut})(GoogleAuth);
