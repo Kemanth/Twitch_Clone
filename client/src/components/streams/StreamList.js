@@ -15,20 +15,20 @@ class StreamList extends React.Component{
                 <div key = {stream.id}>
                     <h3>{stream.title}</h3>
                     <p>{stream.description}</p>
-                    {this.renderEditDeleteButtons(stream.userId)}
+                    {this.renderEditDeleteButtons(stream.userId, stream.id)}
                 </div>
             );
         });
     } 
 
-    renderEditDeleteButtons = (streamUserId) => {
+    renderEditDeleteButtons = (streamUserId, id) => {
         const {userId} = this.props;
-
+        let editPath = `/streams/edit/${id}`;
         if(userId === streamUserId){
             return (
                 <div>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <Link to = {editPath}><button>Edit</button></Link>
+                    <Link to = "/streams/delete"><button>Delete</button></Link>
                 </div>
             );
         }

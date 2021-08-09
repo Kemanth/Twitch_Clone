@@ -1,6 +1,8 @@
 import React from "react";
 import { fetchStream, updateStream } from "../../actions";
 import { connect } from "react-redux";
+import StreamForm from "./StreamForm";
+import * as _ from 'lodash';
 
 class StreamEdit extends React.Component{
 
@@ -15,7 +17,20 @@ class StreamEdit extends React.Component{
     }
 
     render(){
-        return(<div>edit</div>);
+        return(
+            <div>
+                <h2>Edit the Stream</h2>
+                <StreamForm onSubmit = {this.onSumbit} initialValues = {this.props.stream}/>
+            </div>
+        );
     }
 }
-export default connect(null, {fetchStream, updateStream})(StreamEdit);
+
+const mapStateToProps = (store, ownProps) => {
+    const id = ownProps.match.params.id;
+    return {
+        stream : store.streams[id],
+    }
+}
+
+export default connect(mapStateToProps, {fetchStream, updateStream})(StreamEdit);
