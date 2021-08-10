@@ -10,10 +10,12 @@ class StreamList extends React.Component{
     }
 
     renderStreamList = () => {
+        
         return this.props.streams.map((stream) => {
+            let showPath = `/streams/show/${stream.id}`;
             return (
                 <div key = {stream.id}>
-                    <h3>{stream.title}</h3>
+                    <Link to = {showPath}>{stream.title}</Link>
                     <p>{stream.description}</p>
                     {this.renderEditDeleteButtons(stream.userId, stream.id)}
                 </div>
