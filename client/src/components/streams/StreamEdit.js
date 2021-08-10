@@ -20,7 +20,7 @@ class StreamEdit extends React.Component{
         return(
             <div>
                 <h2>Edit the Stream</h2>
-                <StreamForm onSubmit = {this.onSumbit} initialValues = {this.props.stream}/>
+                <StreamForm onSubmit = {this.onSumbit} initialValues = {_.pick(this.props.stream, 'title', 'description')}/>
             </div>
         );
     }

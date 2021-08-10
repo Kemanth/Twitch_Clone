@@ -24,11 +24,12 @@ class StreamList extends React.Component{
     renderEditDeleteButtons = (streamUserId, id) => {
         const {userId} = this.props;
         let editPath = `/streams/edit/${id}`;
+        let deletePath = `/streams/delete/${id}`;
         if(userId === streamUserId){
             return (
                 <div>
                     <Link to = {editPath}><button>Edit</button></Link>
-                    <Link to = "/streams/delete"><button>Delete</button></Link>
+                    <Link to = {deletePath}><button>Delete</button></Link>
                 </div>
             );
         }
