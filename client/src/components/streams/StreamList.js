@@ -14,9 +14,9 @@ class StreamList extends React.Component{
         return this.props.streams.map((stream) => {
             let showPath = `/streams/show/${stream.id}`;
             return (
-                <div key = {stream.id}>
-                    <Link to = {showPath}>{stream.title}</Link>
-                    <p>{stream.description}</p>
+                <div key = {stream.id} className = "card">
+                    <Link to = {showPath} className = "card__heading">{stream.title}</Link>
+                    <p className = "card__details">{stream.description}</p>
                     {this.renderEditDeleteButtons(stream.userId, stream.id)}
                 </div>
             );
@@ -30,8 +30,8 @@ class StreamList extends React.Component{
         if(userId === streamUserId){
             return (
                 <div>
-                    <Link to = {editPath}><button>Edit</button></Link>
-                    <Link to = {deletePath}><button>Delete</button></Link>
+                    <Link to = {editPath} className = "card__btn-edit">Edit</Link>
+                    <Link to = {deletePath} className = "card__btn-delete">Delete</Link>
                 </div>
             );
         }
@@ -50,8 +50,11 @@ class StreamList extends React.Component{
     render(){
         return (
             <div>
-                {this.renderStreamList()}
+                <div className = "streamList">
+                    {this.renderStreamList()}
+                </div>
                 {this.renderCreateStreamButton()}
+                
             </div>
         );
     }

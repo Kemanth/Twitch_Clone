@@ -1,6 +1,8 @@
 import React from "react";
 import { signIn, signOut } from "../actions";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 class GoogleAuth extends React.Component{
     
@@ -40,10 +42,10 @@ class GoogleAuth extends React.Component{
             return null;
         }
         else if(this.props.isSignedIn === true){
-            return <button onClick={this.handleSignOut}>Sign Out</button>
+            return <button className = "header__login-btn" onClick={this.handleSignOut}>{<FontAwesomeIcon icon = {faGoogle} />} Sign Out</button>
         }
         else{
-            return <button onClick={this.handleSignIn}>Sign In</button>
+            return <button className = "header__login-btn" onClick={this.handleSignIn}>{<FontAwesomeIcon icon = {faGoogle} />} Sign In</button>
         }
     }
 
