@@ -2,6 +2,7 @@
     height: 5vh;
     background-color: rgb(195, 195, 195);
     box-shadow: 0 1rem 2rem rgba($color-black,.2);
+    z-index: 999;
     
     &__logo-box {
         position: absolute;

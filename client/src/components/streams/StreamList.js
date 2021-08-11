@@ -40,7 +40,7 @@ class StreamList extends React.Component{
     renderCreateStreamButton = () => {
         if(this.props.isSignedIn){
             return (
-                <div>
+                <div className = "streamList__create">
                     <Link to="/streams/new">Create Stream</Link>
                 </div>
             );
@@ -50,10 +50,10 @@ class StreamList extends React.Component{
     render(){
         return (
             <div>
+                {this.renderCreateStreamButton()}
                 <div className = "streamList">
                     {this.renderStreamList()}
                 </div>
-                {this.renderCreateStreamButton()}
                 
             </div>
         );

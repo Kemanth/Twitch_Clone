@@ -6,11 +6,11 @@ import StreamEdit from "./streams/StreamEdit";
 import StreamList from "./streams/StreamList";
 import StreamShow from "./streams/StreamShow";
 import history from "../history";
-import './styles/main.scss'
+import './styles/main.scss';
 
 const App = () => {
     return (
-        <div>  
+        <div className = "app"> 
             <Router history={history}>
                 <Header/>
                 <Route path="/" exact component={StreamList}/>

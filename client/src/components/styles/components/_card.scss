@@ -11,6 +11,8 @@
     border-radius: 20%;
     box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
     transition: 0.4s;
+    background-image: url("https://i.redd.it/b3esnz5ra34y.jpg");
+    background-repeat: repeat;
     
     &:hover {
         transform: scale(0.9, 0.9);
@@ -19,9 +21,11 @@
     }
 
     &__btn-edit {
-        position: relative;
+        position: absolute;
+        text-align: center;
+        left: 3rem;
         bottom: 1rem;
-        width: 13rem;
+        width: 6rem;
         height: 3rem;
         text-decoration: none;
         background-color: rgb(46, 192, 78);
@@ -30,7 +34,11 @@
     }
 
     &__btn-delete {
-        width: 13rem;
+        position: absolute;
+        text-align: center;
+        right: 3rem;
+        bottom : 1rem;
+        width: 6rem;
         height: 3rem;
         text-decoration: none;
         background-color: rgb(219, 52, 22);
@@ -83,13 +91,12 @@
 
 
     &__heading {
-        font-size: 0.8rem;
+        display: block;
+        font-size: 1.8rem;
         font-weight: 300;
         text-transform: uppercase;
         text-align: center;
-        color: $color-black;
-        position: absolute;
-    
+        color: $color-white;
     }
 
     &__heading-span {
@@ -119,21 +126,12 @@
     &__details {
         padding: 3rem;
 
-        ul {
-            list-style: none;
-            width: 80%;
-            margin: 0 auto;
-
-            li {
-                text-align: center;
-                font-size: 1.5rem;
-                padding: 1rem;
-
-                &:not(:last-child) {
-                    border-bottom: 1px solid $color-grey-light-2;
-                }
-            }
-        }
+        font-size: 1.2rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: center;
+        color: $color-white;
+        
     }
 
 
