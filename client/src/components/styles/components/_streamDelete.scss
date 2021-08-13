@@ -1,0 +1,17 @@
+.streamDelete {
+
+    &__actions {
+
+        &__btn {
+            background-color: rgb(187, 103, 34);
+            padding: 0.5rem;
+            margin-right: 1rem;
+            border : 0.2rem;
+            cursor: pointer;
+            border-radius: 3rem;
+            position: relative;
+            width: 10rem;
+        }
+    }
+
+}

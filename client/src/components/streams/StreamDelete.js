@@ -24,9 +24,9 @@ class StreamDelete extends React.Component{
     renderActions = () => {
         const {id} = this.props.match.params;
         return (
-            <div>
-                <button onClick = {() => this.props.deleteStream(id)}>Delete</button>
-                <button onClick = {this.onDismiss}>Close</button>
+            <div className = "streamDelete_actions">
+                <button onClick = {() => this.props.deleteStream(id)} className = "streamDelete__actions__btn">Delete</button>
+                <button onClick = {this.onDismiss} className = "streamDelete__actions__btn">Close</button>
             </div>
         );
     }

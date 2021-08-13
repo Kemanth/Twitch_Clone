@@ -7,11 +7,11 @@ class Modal extends React.Component{
         const {title, renderContent, renderActions, onDismiss} = this.props;
 
         return(
-            <div onClick = {onDismiss}>
-                <div onClick = { e => e.stopPropagation()}>
-                    <h2>{title}</h2>
-                    <div>{renderContent()}</div>
-                    <div>{renderActions()}</div>
+            <div onClick = {onDismiss} className = "modal__background">
+                <div onClick = { e => e.stopPropagation()} className = "modal">
+                    <h2 className = "modal__title">{title}</h2>
+                    <div className = "modal__body">{renderContent()}</div>
+                    <div className = "modal_actions">{renderActions()}</div>
                 </div>
             </div>
         );

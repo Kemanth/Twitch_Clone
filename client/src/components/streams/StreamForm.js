@@ -13,20 +13,20 @@ class StreamForm extends React.Component{
 
     renderInput = ({input, meta}) => {
         return (
-            <div>
+            <div className = "streamForm__input">
                 <label>{input.name}</label>
                 <input {...input}/>
-                <div>{this.renderError(meta)}</div>
+                <div className = "streamForm__warning">{this.renderError(meta)}</div>
             </div>
         );
     }
 
     render(){
         return (
-            <form onSubmit = {this.props.handleSubmit(this.props.onSubmit)}>
+            <form onSubmit = {this.props.handleSubmit(this.props.onSubmit)} className = "streamForm">
                 <Field name = "title" component={this.renderInput}/>
                 <Field name = "description" component={this.renderInput}/>
-                <button>Submit</button>            
+                <button className = "streamForm__submit">Submit</button>            
             </form>
         );
     }

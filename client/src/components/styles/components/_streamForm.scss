@@ -1,0 +1,42 @@
+.streamForm {
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+    width: 25rem;
+    padding: 0.8rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    border-radius: 1rem;
+
+    &__header {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        font-size: $header-font-size;
+        font-weight: 400;
+    }
+
+    &__input {
+        display: flex;
+        flex-direction: column;
+        padding: 0.8rem;
+        text-transform: capitalize;
+    }
+
+    &__submit {
+        padding: 0.4rem;
+        border : 0;
+        border-radius: 1rem;
+        cursor: pointer;
+        background-color: rgb(219, 52, 22);
+    }
+
+    &__warning {
+        color: crimson;
+    }
+}
